@@ -17,9 +17,12 @@ const MotionAgentTile = motion.create(AgentTile);
 const MotionAvatarTile = motion.create(AvatarTile);
 
 const animationProps = {
-  initial: {
-    opacity: 0,
-    scale: 0,
+  transition: {
+    delay: 0.2,
+    type: "spring" as const,
+    stiffness: 400,
+    damping: 25,
+    mass: 1,
   },
   animate: {
     opacity: 1,
