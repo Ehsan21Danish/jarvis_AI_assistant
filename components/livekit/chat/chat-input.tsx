@@ -12,11 +12,13 @@ export function ChatInput({ onSend, className, disabled, ...props }: ChatInputPr
   const [message, setMessage] = useState<string>('');
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    props.onSubmit?.(e);
-    onSend?.(message);
-    setMessage('');
-  };
+  e.preventDefault();
+
+  props.onSubmit?.(e as any);
+
+  onSend?.(message);
+  setMessage('');
+};
 
   const isDisabled = disabled || message.trim().length === 0;
 
